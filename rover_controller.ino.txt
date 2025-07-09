@@ -1,0 +1,27 @@
+// rover_controller.ino
+#define ENA 14  // PWM for motor A
+#define IN1 27  // Direction 1
+#define IN2 26  // Direction 2
+
+void setup() {
+  pinMode(ENA, OUTPUT);
+  pinMode(IN1, OUTPUT);
+  pinMode(IN2, OUTPUT);
+  Serial.begin(115200);
+}
+
+void loop() {
+  // Move Forward
+  digitalWrite(IN1, HIGH);
+  digitalWrite(IN2, LOW);
+  analogWrite(ENA, 200);  // speed
+
+  delay(2000);
+
+  // Stop
+  digitalWrite(IN1, LOW);
+  digitalWrite(IN2, LOW);
+  analogWrite(ENA, 0);
+
+  delay(2000);
+}
